@@ -1,0 +1,21 @@
+.tableWrap{
+    display: inline;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+}
+
+table th, table td{
+    border: 2px solid black;
+}
+
+table{
+    border-collapse: collapse;
+}
+
+.delete, .edit{
+    border: none;
+    padding: 7px;
+    border-radius: 5px;
+    cursor: pointer;
+}

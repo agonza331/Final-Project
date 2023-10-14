@@ -1,0 +1,47 @@
+{
+    "places":
+[
+    {
+      "id": "1",
+      "name": "Liberia Porruo",
+      "about": "A cute little library in the city",
+      "location": "https://www.google.com/maps/place/Librer%C3%ADa+Porr%C3%BAa/@19.4341543,-99.1469189,17z/data=!4m14!1m3!11m2!2s9zwK3XzEQJa-MmdUmcxaMA!3e3!3m9!1s0x85d1f92b3cbba87f:0xdddba64f591207a1!5m2!4m1!1i2!8m2!3d19.4341493!4d-99.142048!15sCgEqWgMiASqSAQpib29rX3N0b3Jl4AEA!16s%2Fg%2F1tcwlxh9?entry=ttu"
+    },
+    {
+      "id": "2",
+      "name": "Museo de Frida Kahlo",
+      "about": "A museum of the Mexican artist Frida Kahlo, located at her house in Mexico City.",
+      "location": "https://www.google.com/maps/place/Frida+Kahlo+Museum/@19.3542792,-99.179232,14.91z/data=!4m13!1m3!11m2!2s9zwK3XzEQJa-MmdUmcxaMA!3e3!3m8!1s0x85d1ffc400ba3f3b:0x6201a4f7f7ccf4a1!5m2!4m1!1i2!8m2!3d19.3551806!4d-99.1624636!16s%2Fm%2F0fq0vs1?entry=ttu"
+    },
+    {
+      "id": "3",
+      "name": "Tepoznieves",
+      "about": "A very popular ice cream parlor near Museo de Frida Kahlo.",
+      "location": "https://www.google.com/maps/place/Tepoznieves/@19.3497705,-99.1678866,17z/data=!4m14!1m3!11m2!2s9zwK3XzEQJa-MmdUmcxaMA!3e3!3m9!1s0x85d1ff1cf7a6eedf:0x8e6c956795979810!5m2!4m1!1i2!8m2!3d19.3497655!4d-99.1630157!15sCgEqWgMiASqSAQ5pY2VfY3JlYW1fc2hvcOABAA!16s%2Fg%2F11fk14j7k6?entry=ttu"
+    },
+    {
+      "id": "4",
+      "name": "Taqueria Orinoco",
+      "about": "A popular taco franchise in Mexico City. There are a variety of locations with excellent tacos.",
+      "location": "https://www.google.com/maps/place/Taquer%C3%ADa+Orinoco+(Zona+Rosa)/@19.4256935,-99.1715789,17z/data=!3m2!4b1!5s0x85d1ff3609df0f0b:0x50d8c781b42f8a24!4m14!1m3!11m2!2s9zwK3XzEQJa-MmdUmcxaMA!3e3!3m9!1s0x85d1ff49875d643f:0xf0ce862ef25b55bc!5m2!4m1!1i2!8m2!3d19.4256885!4d-99.166708!15sCgEqWgMiASqSAQ90YAWNjgAQ:16s%2Fg%2F11qpn8d627?entry=ttu"
+    },
+    {
+      "id": "5",
+      "name": "Castillo de Chapultepec",
+      "about": "This historic hilltop castle with views of Mexico City houses the National Museum of History.",
+      "location": "https://lh5.googleusercontent.com/p/AF1QipNoUDY7TQFWrrolm2uy6X0i4SNLwiFMhQlsVXky=w408-h306-k-no"
+    },
+    {
+      "id": "6",
+      "name": "Churrería El Moro",
+      "about": "A well-known franchise for fresh and delicious churros!",
+      "location": "https://www.google.com/maps/place/Churrer%C3%ADa+El+Moro/@19.425987,-99.1689711,17z/data=!3m2!4b1!5s0x85d1ff34270dfed5:0xcb13e0bbccf17df6!4m14!1m3!11m2!2s9zwK3XzEQJa-MmdUmcxaMA!3e3!3m9!1s0x85d1ff3427558d1f:0x38765204a839e803!5m2!4m1!1i2!8m2!3d19.425982!4d-99.1641002!15sCgEqWgMiASqSAQljaHVycmVyaWHgAQA!16s%2Fg%2F11hcylt62w?entry=ttu"
+    },
+    {
+      "id": "7",
+      "name": "Museo Soumaya",
+      "about": "Museum housing an extensive art collection, much of it European, in a modern, curving structure. Near the great neighborhood called Polanco",
+      "location": "https://www.google.com/maps/place/Museo+Soumaya/@19.4406976,-99.209571,17z/data=!3m1!4b1!4m14!1m3!11m2!2s9zwK3XzEQJa-MmdUmcxaMA!3e3!3m9!1s0x85d2021a6e3a3d09:0x9372e2224c033cb3!5m2!4m1!1i2!8m2!3d19.4406926!4d-99.2047001!15sCgEqWgMiASqSAQphcnRfbXVzZXVt4AEA!16s%2Fm%2F0gg8c6b?entry=ttu"
+    }
+  ]
+}
