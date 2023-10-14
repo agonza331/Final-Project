@@ -3,9 +3,12 @@ import Form from '../components/Form';
 import axios from 'axios';
 import EditAttraction from '../components/EditForm'; // Assuming you have the EditAttraction component
 import Delete from '../components/Delete';
+import { useNavigate } from 'react-router-dom'; // Add this import
 
 const AttractionsList = () => {
   const [attractions, setAttractions] = useState([]);
+  const navigate = useNavigate(); // Initialize the navigate function
+  const [editingAttraction, setEditingAttraction] = useState(null); // Declare editingAttraction
 
   useEffect(() => {
     const fetchAttractions = async () => {
@@ -30,14 +33,12 @@ const AttractionsList = () => {
     setAttractions((prevAttractions) => prevAttractions.filter((attraction) => attraction.id !== id));
   };
 
-  const [editingAttraction, setEditingAttraction] = useState(null);
-
   return (
     <div>
       <h3>Where Should I Visit?</h3>
-      <Form onAttractionAdded={handleAttractionAdded} /> 
+      <Form onAttractionAdded={handleAttractionAdded} />
       <table className="tableWrap">
-        <thead> 
+        <thead>
           <tr>
             <th>Name</th>
             <th>Description</th>

@@ -1,6 +1,5 @@
 import React from "react"
 import "./Home.css"
-import Navigate from "../components/NavBar"
 
 export default function Home() {
   return(

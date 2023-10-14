@@ -1,18 +1,18 @@
-import React from 'react';
-import { api } from '../rest/MexicoApi';
+import React from "react";
+import { api } from "../rest/MexicoApi";
 
 function Delete({ attraction, onDelete }) {
   const deleteAttraction = async (id) => {
     try {
-      // Assuming your API.delete function is correctly implemented
+      console.log(`Deleting attraction with ID: ${id}`);
       await api.delete(`attractions/${id}`);
+      console.log(`Attraction with ID ${id} deleted successfully`);
       onDelete(id);
     } catch (error) {
       console.error('Error deleting attraction:', error);
-      // Display a user-friendly error message to the user
       alert('Failed to delete the attraction. Please try again later.');
     }
-  };  
+  }
 
   return (
     <div>

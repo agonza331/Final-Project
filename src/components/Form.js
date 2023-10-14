@@ -1,14 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function AddAttraction({onAttractionAdded }) {
+function Form({ onAttractionAdded, attraction }) {
   const [formData, setFormData] = useState({
     name: '',
     about: '',
     location: '',
   });
 
-  const { name, about, location } = formData; // Destructure values from formData
+  useEffect(() => {
+    if (attraction) {
+      setFormData(attraction);
+    }
+  }, [attraction]);
+
+  const { name, about, location } = formData;
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -17,26 +23,31 @@ function AddAttraction({onAttractionAdded }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const response = await axios.post(
-        'https://64f4f19b932537f4051acd19.mockapi.io/attractions',
-        formData
-      );
-      onAttractionAdded(response.data); // Update the list with the new attraction
 
+    try {
+      if (attraction) {
+        // Edit mode: Send a PUT request to update the attraction
+        await axios.put(`https://64f4f19b932537f4051acd19.mockapi.io/attractions/${attraction.id}`, formData);
+      } else {
+        // Add mode: Send a POST request to create a new attraction
+        const response = await axios.post('https://64f4f19b932537f4051acd19.mockapi.io/attractions', formData);
+        onAttractionAdded(response.data);
+      }
+
+      // Reset the form after submission
       setFormData({
         name: '',
         about: '',
-        location:'',
+        location: '',
       });
     } catch (error) {
-      console.error('Error adding attraction:', error);
+      console.error('Error:', error);
     }
   };
 
   return (
     <div className='add'>
-      <h4>Add a new attraction in CDMX</h4>
+      <h4>{attraction ? 'Edit' : 'Add'} an attraction in CDMX</h4>
       <form onSubmit={handleSubmit}>
         <input
           type='text'
@@ -44,7 +55,7 @@ function AddAttraction({onAttractionAdded }) {
           placeholder='Name'
           value={name}
           onChange={handleInputChange}
-          required // Add the "required" attribute for basic validation
+          required
         />
         <input
           type='text'
@@ -63,38 +74,11 @@ function AddAttraction({onAttractionAdded }) {
           required
         />
         <button type='submit' className='btn'>
-          Add
+          {attraction ? 'Update' : 'Add'}
         </button>
       </form>
     </div>
   );
 }
 
-export default AddAttraction;;
-
-
-
-// const [name, setName] = useState('');
-// const [about, setAbout] = useState('');
-// const [location, setLocation] = useState('');
-
-// const handleSubmit = async (e) => {
-//   e.preventDefault();
-//   if (name) {
-//     const newPlace = { name, about, location };
-//     try {
-//       const response = await api.post('/places', newPlace);
-//       if (response) {
-//         console.log('Successfully added a new place');
-//       }
-//     } catch (error) {
-//       console.error(`Failed to add a new place: ${error.message}`);
-//     }
-//     // Clear the input fields
-//     setName('');
-//     setAbout('');
-//     setLocation('');
-//   } else {
-//     console.log('Invalid input');
-//   }
-// }
+export default Form;

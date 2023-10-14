@@ -1,21 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import { Route, useNavigate } from 'react-router-dom'; // Import useNavigate instead of useHistory
 import axios from 'axios';
+import { useParams, useNavigate } from 'react-router-dom';
 
-function EditAttraction() {
-  const navigate = useNavigate(); // Use useNavigate instead of useHistory
+const EditAttraction = () => {
+  const { id } = useParams();
+  const navigate = useNavigate();
 
-  const [id, setID] = useState(null);
+  const [attractionId, setAttractionId] = useState(null);
   const [name, setName] = useState('');
   const [about, setAbout] = useState('');
   const [location, setLocation] = useState('');
 
   useEffect(() => {
-    setID(localStorage.getItem('ID'));
+    setAttractionId(id); // Set the attractionId from the URL parameter
     setName(localStorage.getItem('Name'));
     setAbout(localStorage.getItem('About'));
     setLocation(localStorage.getItem('Location'));
-  }, []);
+  }, [id]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -31,6 +32,7 @@ function EditAttraction() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log('Submitting form...');
 
     try {
       // Send a PUT request to update the attraction data on the server
@@ -41,7 +43,7 @@ function EditAttraction() {
       };
 
       // Send the updated data to an API for attraction update
-      await axios.put(`https://64f4f19b932537f4051acd19.mockapi.io/attractions/${id}`, updatedAttraction);
+      await axios.put(`https://64f4f19b932537f4051acd19.mockapi.io/attractions/${attractionId}`, updatedAttraction);
 
       // Navigate to a specific route after updating (replace '/read' with your desired route)
       navigate('/read');
