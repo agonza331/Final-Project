@@ -19,10 +19,11 @@ table{
 }
 
 .delete, .edit{
-    border: none;
+    border:2%;
     padding: 7px;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 2%;
 }
 
 .h1{

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Form from '../components/Form';
 import axios from 'axios';
-import Delete from '../components/Delete'; // Import the Delete component
 import { useNavigate } from 'react-router-dom';
 import '../pages/AttractionList.css';
 import EditAttraction from '../components/EditForm';
+import DeleteAttraction from '../components/Delete';
 
 const AttractionsList = () => {
   const [attractions, setAttractions] = useState([]);
@@ -28,12 +28,34 @@ const AttractionsList = () => {
     setAttractions((prevAttractions) => [...prevAttractions, newAttraction]);
   };
 
-  const handleDeleteAttraction = (id) => {
-    setAttractions((prevAttractions) => prevAttractions.filter((attraction) => attraction.id !== id));
+  const handleAttractionDeleted = (attractionId) => {
+    // Remove the deleted attraction from the state
+    setAttractions((prevAttractions) =>
+      prevAttractions.filter((attraction) => attraction.id !== attractionId)
+    );
   };
 
+  const toggleCheckmark = (attractionId) => {
+    setAttractions((prevAttractions) =>
+      prevAttractions.map((attraction) =>
+        attraction.id === attractionId ? { ...attraction, checked: !attraction.checked } : attraction
+      )
+    );
+  };
+
+  // Load checkmark status from local storage on component mount
+  useEffect(() => {
+    const savedAttractions = JSON.parse(localStorage.getItem('attractions')) || [];
+    setAttractions(savedAttractions);
+  }, []);
+
+  // Save checkmark status to local storage whenever attractions change
+  useEffect(() => {
+    localStorage.setItem('attractions', JSON.stringify(attractions));
+  }, [attractions]);
+
   return (
-    <div className='list'>
+    <div className="list">
       <h1 className="h1">Where Should I Visit?</h1>
       <Form onAttractionAdded={handleAttractionAdded} />
       <table className="tableWrap">
@@ -42,6 +64,7 @@ const AttractionsList = () => {
             <th>Name</th>
             <th>Description</th>
             <th>Location</th>
+            <th>Visted</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -56,12 +79,17 @@ const AttractionsList = () => {
                 </a>
               </td>
               <td>
-                <button
-                  className='edit'
-                  onClick={() => setEditingAttraction(attraction)}>
+                <input
+                  type="checkbox"
+                  checked={attraction.checked}
+                  onChange={() => toggleCheckmark(attraction.id)}
+                />
+              </td>
+              <td>
+                <button className="edit" onClick={() => setEditingAttraction(attraction)}>
                   Edit
                 </button>
-                <Delete attraction={attraction} onDelete={handleDeleteAttraction} /> {/* Pass the attraction and onDelete handler to Delete */}
+                <DeleteAttraction attractionId={attraction.id} onDelete={handleAttractionDeleted} />
               </td>
             </tr>
           ))}
@@ -69,6 +97,6 @@ const AttractionsList = () => {
       </table>
     </div>
   );
-}
+};
 
 export default AttractionsList;

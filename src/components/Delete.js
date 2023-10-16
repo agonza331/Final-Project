@@ -1,24 +1,23 @@
-import React from "react";
-import { api } from '../rest/MockAPI'; 
+import React from 'react';
+import axios from 'axios';
 
-function Delete({ attraction, onDelete }) {
-  const deleteAttraction = async (id) => {
+const DeleteAttraction = ({ attractionId, onDelete }) => {
+  const handleDelete = async () => {
     try {
-      console.log(`Deleting attraction with ID: ${id}`);
-      await api.delete(`attractions/${id}`);
-      console.log(`Attraction with ID ${id} deleted successfully`);
-      onDelete(id);
+      // Send a DELETE request to your API to delete the attraction
+      await axios.delete(`https://64f4f19b932537f4051acd19.mockapi.io/attractions/${attractionId}`);
+      onDelete(attractionId); // Notify the parent component that the attraction was deleted
     } catch (error) {
-      console.error('Error deleting attraction:', error);
-      alert('Failed to delete the attraction. Please try again later.');
+      console.error('Error deleting attraction: ', error);
     }
-  }
+  };
 
   return (
-    <div>
-      <button onClick={() => deleteAttraction(attraction.id)}>Delete</button>
-    </div>
+    <button className="delete" onClick={handleDelete}>
+      Delete
+    </button>
   );
-}
+};
 
-export default Delete;
+export default DeleteAttraction;
+
