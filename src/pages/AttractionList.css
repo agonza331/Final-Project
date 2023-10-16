@@ -12,6 +12,8 @@
 
 table th, table td{
     border: 2px solid black;
+    padding-left: 4px;
+    padding-right: 4px;
 }
 
 table{
@@ -23,7 +25,7 @@ table{
     padding: 7px;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 2%;
+    margin-top: 3%;
 }
 
 .h1{
@@ -37,3 +39,4 @@ table{
     background-color: bisque;
 
 }
+

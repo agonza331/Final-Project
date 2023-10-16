@@ -7,7 +7,8 @@ export default function About() {
     <div className="info">
         <h1 className="header">About</h1>
         <p>This site is to allow users to make a list of places to visit in Mexico City.
-            Users are given a set list of locations that they can manipulate by adding, deleting, or updating it. 
+            Users are given a set list of locations that they can manipulate by adding, deleting, or updating it. <br/>
+            Users can check off the list of the attractions they have visted, add a date for when they want to go, a form to add a attraction/location, and update the table or delete an attraction.
         </p> <br/>
         <h3 className="header2">
             Other websites to learn about attractions and other sight-seeing locations to vist in Mexico.

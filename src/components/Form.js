@@ -48,32 +48,32 @@ function Form({ onAttractionAdded, attraction }) {
 
   return (
     <div className='add'>
-      <h4>{attraction ? 'Edit' : 'Add'} an attraction in CDMX</h4>
+      <h4>{attraction ? 'Edit' : 'Add'} an attraction in CDMX!</h4>
       <form onSubmit={handleSubmit}>
-        <input
+        <input 
           type='text'
           name='name'
           placeholder='Name'
           value={name}
           onChange={handleInputChange}
           required
-        />
-        <input
+        /> <br/>
+        <textarea 
           type='text'
           name='about'
           placeholder='About'
           value={about}
           onChange={handleInputChange}
           required
-        />
+        /><br/>
         <input
           type='url'
           name='location'
-          placeholder='Address Link'
+          placeholder='Google Map URL'
           value={location}
           onChange={handleInputChange}
           required
-        />
+        /><br/>
         <button type='submit' className='btn'>
           {attraction ? 'Update' : 'Add'}
         </button>
