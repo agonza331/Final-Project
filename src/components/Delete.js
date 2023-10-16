@@ -1,5 +1,5 @@
 import React from "react";
-import { api } from "../rest/MexicoApi";
+import { api } from '../rest/MockAPI'; 
 
 function Delete({ attraction, onDelete }) {
   const deleteAttraction = async (id) => {

@@ -17,7 +17,8 @@ function App() {
         <Route path="/src/pages/AttractionList.js" element={<AttractionsList />} />
         <Route path="/src/components/Form.js" element={<AddAttraction />} />
         <Route path="/src/components/EditForm.js" element={<EditAttraction />} />
-        <Route path="/edit/:id" element={<EditAttraction />} />
+        <Route path="/edit/:id" component={EditAttraction} /> 
+        <Route path="/read" component={AttractionsList} />
       </Routes>
     </div>
   );

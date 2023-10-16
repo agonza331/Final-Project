@@ -1,11 +1,9 @@
 .Nav {
     background-color: lavender;
-
   }
   
   .Nav-links {
-    list-style-type: none;;
-    padding: 10;
+    padding: 10px;
     display:flex;
     justify-content: center;
   }

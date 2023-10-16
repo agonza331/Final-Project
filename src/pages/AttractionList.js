@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import Form from '../components/Form';
 import axios from 'axios';
-import EditAttraction from '../components/EditForm'; // Assuming you have the EditAttraction component
-import Delete from '../components/Delete';
-import { useNavigate } from 'react-router-dom'; // Add this import
+import Delete from '../components/Delete'; // Import the Delete component
+import { useNavigate } from 'react-router-dom';
+import '../pages/AttractionList.css';
+import EditAttraction from '../components/EditForm';
 
 const AttractionsList = () => {
   const [attractions, setAttractions] = useState([]);
-  const navigate = useNavigate(); // Initialize the navigate function
-  const [editingAttraction, setEditingAttraction] = useState(null); // Declare editingAttraction
+  const navigate = useNavigate();
+  const [editingAttraction, setEditingAttraction] = useState(null);
 
   useEffect(() => {
     const fetchAttractions = async () => {
@@ -24,18 +25,16 @@ const AttractionsList = () => {
   }, []);
 
   const handleAttractionAdded = (newAttraction) => {
-    // Update the 'attractions' state with the new attraction
     setAttractions((prevAttractions) => [...prevAttractions, newAttraction]);
   };
 
   const handleDeleteAttraction = (id) => {
-    // Remove the attraction with the given id from the 'attractions' state
     setAttractions((prevAttractions) => prevAttractions.filter((attraction) => attraction.id !== id));
   };
 
   return (
-    <div>
-      <h3>Where Should I Visit?</h3>
+    <div className='list'>
+      <h1 className="h1">Where Should I Visit?</h1>
       <Form onAttractionAdded={handleAttractionAdded} />
       <table className="tableWrap">
         <thead>
@@ -62,7 +61,7 @@ const AttractionsList = () => {
                   onClick={() => setEditingAttraction(attraction)}>
                   Edit
                 </button>
-                <Delete attraction={attraction} onDelete={handleDeleteAttraction} />
+                <Delete attraction={attraction} onDelete={handleDeleteAttraction} /> {/* Pass the attraction and onDelete handler to Delete */}
               </td>
             </tr>
           ))}

@@ -1,8 +1,13 @@
 .tableWrap{
-    display: inline;
     justify-content: center;
     align-items: center;
     height: 20vh;
+    width: 80%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2%;
+    background-color: lavender;
 }
 
 table th, table td{
@@ -18,4 +23,16 @@ table{
     padding: 7px;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.h1{
+    text-align:center;
+}
+
+.list{
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4ITQxFCcXmWLkCz1gRSiy7sTboIK5s2ctug&usqp=CAU);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-color: bisque;
+
 }

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import '../components/form.css';
 
 function Form({ onAttractionAdded, attraction }) {
   const [formData, setFormData] = useState({

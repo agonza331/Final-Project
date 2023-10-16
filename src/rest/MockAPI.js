@@ -2,17 +2,17 @@ const API_URL = "https://64f4f19b932537f4051acd19.mockapi.io/attractions";
 
 class API {
   constructor() {
-    this.API_URL = API_URL; // Corrected property name
+    this.base_url = API_URL; 
   }
 
-  async post(newPlace) {
+  async post(attractions) {
     try {
-      const resp = await fetch(this.API_URL, {
+      const resp = await fetch(this.base_url, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(newPlace),
+        body: JSON.stringify(attractions),
       });
 
       if (!resp.ok) {
@@ -28,7 +28,7 @@ class API {
 
   async get() {
     try {
-      const resp = await fetch(this.API_URL);
+      const resp = await fetch(this.base_url);
 
       if (!resp.ok) {
         throw new Error(`Failed to fetch places: ${resp.status}`);
@@ -41,14 +41,14 @@ class API {
     }
   }
 
-  async put(place) { // Fixed the parameter name to 'place'
+  async put(attractions) { // Fixed the parameter name to 'attractions'
     try {
-      const resp = await fetch(`${this.API_URL}/${place._id}`, {
+      const resp = await fetch(`${this.base_url}/${attractions._id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(place),
+        body: JSON.stringify(attractions),
       });
 
       if (!resp.ok) {
@@ -62,9 +62,9 @@ class API {
     }
   };
 
-  async delete(resource) {
+  async delete(attractions) {
     try {
-      const response = await fetch(`${this.API_URL}/${resource}`, {
+      const response = await fetch(`${this.base_url}/${attractions._id}`, {
         method: 'DELETE',
       });
 
