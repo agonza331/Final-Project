@@ -18,4 +18,5 @@ textarea{
 
 .btn{
     background-color: lightcoral;
+    cursor: pointer;
 }
