@@ -4,7 +4,7 @@ import axios from 'axios';
 const DeleteAttraction = ({ attractionId, onDelete }) => {
   const handleDelete = async () => {
     try {
-      // Send a DELETE request to your API to delete the attraction
+      // Send a DELETE request to API to delete the attraction
       await axios.delete(`https://64f4f19b932537f4051acd19.mockapi.io/attractions/${attractionId}`);
       onDelete(attractionId); // Notify the parent component that the attraction was deleted
     } catch (error) {
@@ -20,4 +20,3 @@ const DeleteAttraction = ({ attractionId, onDelete }) => {
 };
 
 export default DeleteAttraction;
-

@@ -6,7 +6,7 @@ export default function Navigate() {
   return (
     <nav className="Nav">
       <ul className="Nav-links">
-        <li className="active">
+        <li>
           <Link to="src/pages/Home.js" className="site-title">Home</Link>
         </li>
         <li>
@@ -19,5 +19,4 @@ export default function Navigate() {
     </nav>
   );
 }
-
 

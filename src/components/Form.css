@@ -1,0 +1,24 @@
+.add{
+    padding:3px;
+    text-align:center;
+    box-sizing: border-box;
+}
+
+input {
+    margin-left:auto;
+    margin-right: auto;
+    width:50%;
+    margin: 5px;
+}
+textarea{
+    height: min-content;
+    width: 50%;
+    margin-top: 5px;
+
+}
+
+.btn{
+    background-color: lightseagreen;
+    margin: 10px;
+    cursor: pointer;
+}
